@@ -35,12 +35,12 @@ Still under development.
 ### *coming Soon*
 
 ## 📽️📽️ Demo Video: 
-In case the live demo is not working.
+<!--*In case the live demo is not working.*-->
 *coming soon* 
 
 ## ⚠️⚠️ Known Issues:
 - Testing not done yet
--
+
 # 🙏🙏 Thank you
 - Thank you all for using my app.
 - All suggestions are warmly welcomed.
