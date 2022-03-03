@@ -17,9 +17,30 @@ lis = []
 for file in glob.glob("*.jpg"):
     lis.append(file)
 
+for file in glob.glob("*.png"):
+    lis.append(file)
+
+for file in glob.glob("*.jpeg"):
+    lis.append(file)
+
+for file in glob.glob("*.ico"):
+    lis.append(file)
+
+for file in glob.glob("*.jfif"):
+    lis.append(file)
 
 total = len(lis)
 index = 0
+
+def img_loader(index):
+    img = Image.open(lis[index])
+    img = img.resize((300, 205), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
+    return img
+
+def img_update(img):
+    label.config(image=img)
+    label.photo = img
 
 def im_nxt():
     global index
@@ -28,11 +49,7 @@ def im_nxt():
         pass
     else:
         index +=1
-        print("next")
-        img = ImageTk.PhotoImage(Image.open(lis[index]))
-        label.config(image=img)
-        label.photo = img
-        print(index)
+        img_update(img_loader(index))
 
 def im_prev():
     global index
@@ -41,17 +58,14 @@ def im_prev():
         pass
     else:
         index -=1
-        print("previous")
-        img = ImageTk.PhotoImage(Image.open(lis[index]))
-        label.config(image=img)
-        label.photo = img
-        print(index)
+        img_update(img_loader(index))
+
 
 frame = tk.Frame(window, width=600, height=600)
 frame.pack()
 frame.place(anchor='center', relx=0.5, rely=0.5)
 
-img = ImageTk.PhotoImage(Image.open(lis[index]))
+img = img_loader(index)
 label = tk.Label(frame, image=img)
 label.pack()
 
