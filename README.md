@@ -1,7 +1,7 @@
 # Py Image Viewer
 ## ℹ️ℹ️ Overview
 Py Image Viewer is an app made in python. 
-<br/> It can open jpg files in the specified folder 🖼️🖼️
+<br/> It can open jpg, png, ico, jfif, etc files in the specified folder 🖼️🖼️
 <br/> More features to be added soon ⌛⌛
 
 ## ⚒️⚒️ Tools and Technologies Used:
