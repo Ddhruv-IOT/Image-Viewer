@@ -9,14 +9,20 @@ import glob
 import tkinter as tk
 from PIL import ImageTk, Image
 
+
+img_list_raw = []
+img_list = []
+
+index = []
+index.append(0)
+idx = index
+
 window = tk.Tk()
 window.geometry("800x400")
 
-img_list = []
-img_list_raw = []
 
 def img_finder():
-
+    """ Function to find images on Device """
 
     for file in glob.glob("*.jpg"):
         img_list_raw.append(file)
@@ -33,55 +39,58 @@ def img_finder():
     for file in glob.glob("*.jfif"):
         img_list_raw.append(file)
 
-    if (img_list_raw):
+    if img_list_raw:
         return len(img_list_raw)
-    else:
-        return None
+
+    return None
 
 
 total = img_finder()
 img_list = img_list_raw
-index = 0
 
 
-def img_loader(index):
-    img = Image.open(img_list[index])
+def img_loader():
+    """ Function to load the images on GUI"""
+
+    img = Image.open(img_list[idx[0]])
     img = img.resize((300, 205), Image.ANTIALIAS)
     img = ImageTk.PhotoImage(img)
     return img
 
 
 def img_update(img):
+    """ Function to change the images based on user input """
+
     label.config(image=img)
     label.photo = img
 
 
 def im_nxt():
-    global index
+    """ Function for next Image """
 
-    if (index+1) > total-1:
+    if (idx[0] + 1) > total - 1:
         pass
     else:
-        index += 1
-        img_update(img_loader(index))
+        idx[0] += 1
+        img_update(img_loader())
 
 
 def im_prev():
-    global index
+    """ Function for previous Image """
 
-    if (index-1) < 0:
+    if (idx[0] - 1) < 0:
         pass
     else:
-        index -= 1
-        img_update(img_loader(index))
+        idx[0] -= 1
+        img_update(img_loader())
 
 
 frame = tk.Frame(window, width=600, height=600)
 frame.pack()
 frame.place(anchor='center', relx=0.5, rely=0.5)
 
-img = img_loader(index)
-label = tk.Label(frame, image=img)
+current_img = img_loader()
+label = tk.Label(frame, image=current_img)
 label.pack()
 
 B1 = tk.Button(window, text="Nxt", command=im_nxt)
