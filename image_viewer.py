@@ -13,8 +13,7 @@ from PIL import ImageTk, Image
 img_list_raw = []
 img_list = []
 
-idx = []
-idx.append(0)
+idx = [0]
 
 window = tk.Tk()
 window.geometry("800x400")
@@ -44,7 +43,7 @@ def img_finder():
     return None
 
 
-total = img_finder()
+TOTAL = img_finder()
 img_list = img_list_raw
 
 
@@ -67,7 +66,7 @@ def img_update(img):
 def im_nxt():
     """ Function for next Image """
 
-    if (idx[0] + 1) > total - 1:
+    if (idx[0] + 1) > TOTAL - 1:
         pass
     else:
         idx[0] += 1
@@ -84,20 +83,24 @@ def im_prev():
         img_update(img_loader())
 
 
-frame = tk.Frame(window, width=600, height=600)
-frame.pack()
-frame.place(anchor='center', relx=0.5, rely=0.5)
+try:
+    frame = tk.Frame(window, width=600, height=600)
+    frame.pack()
+    frame.place(anchor='center', relx=0.5, rely=0.5)
 
-current_img = img_loader()
-label = tk.Label(frame, image=current_img)
-label.pack()
+    current_img = img_loader()
+    label = tk.Label(frame, image=current_img)
+    label.pack()
 
-B1 = tk.Button(window, text="Nxt", command=im_nxt)
-B1.pack()
-B1.place(anchor='e', relx=0.8, rely=0.5)
+    B1 = tk.Button(window, text="Nxt", command=im_nxt)
+    B1.pack()
+    B1.place(anchor='e', relx=0.8, rely=0.5)
 
-B2 = tk.Button(window, text="Prev", command=im_prev)
-B2.pack()
-B2.place(anchor='w', relx=0.2, rely=0.5)
+    B2 = tk.Button(window, text="Prev", command=im_prev)
+    B2.pack()
+    B2.place(anchor='w', relx=0.2, rely=0.5)
 
-window.mainloop()
+    window.mainloop()
+
+except IndexError as e:
+    print(f"No images found -> {e}")
