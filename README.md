@@ -7,8 +7,9 @@ Py Image Viewer is an app made in python.
 ## ⚒️⚒️ Tools and Technologies Used:
 
 ### 💿💿 Python Modules used:
-- Tkinter: for GUI
+- Tkinter: for GUI development
 - PIL: for reading and loading Images
+- Glob: for finding the images on device
 
 ### 💿💿 Softwares Used 
 - Spyder 5.0.5
@@ -16,8 +17,8 @@ Py Image Viewer is an app made in python.
 - Git Bash 
 
 ## 🧑‍🤝‍🧑🧑‍🤝‍🧑 Contributors: 
-- [Aakriti Goyal](https://github.com/AakritiGoyal12458) : Discussed and formulated the Idea
-- [Ddhruv Arora](https://github.com/Ddhruv-IOT) : Implemented the Idea
+- [Aakriti Goyal](https://github.com/AakritiGoyal12458): Discussed and formulated the Idea
+- [Ddhruv Arora](https://github.com/Ddhruv-IOT): Implemented the Idea
 
 ## 📽️📽️ [Demo Video](https://github.com/Ddhruv-IOT/Image-Viewer/blob/main/demo_videos/demo%20video.mp4): 
 <p align="center"> <img src="https://github.com/Ddhruv-IOT/Image-Viewer/blob/main/demo_videos/demo.gif" alt="animated" /> </p>
