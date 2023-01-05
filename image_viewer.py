@@ -13,9 +13,8 @@ from PIL import ImageTk, Image
 img_list_raw = []
 img_list = []
 
-index = []
-index.append(0)
-idx = index
+idx = []
+idx.append(0)
 
 window = tk.Tk()
 window.geometry("800x400")
